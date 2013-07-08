@@ -1,4 +1,5 @@
 FatPenguin::Application.routes.draw do
+  resources :facts
   root :to => "home#index"
   resources :users, :only => [:index, :show, :edit, :update ]
   match '/auth/:provider/callback' => 'sessions#create'

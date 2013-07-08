@@ -2,7 +2,7 @@
 	<li><%= link_to "FatPenguin", root_path, :class => 'brand' %></li>
   <% if user_signed_in? %>
     <li>
-    Logged in as <%= current_user.name %>
+			<a href="#myModal" role="button" data-toggle="modal">Me</a>
     </li>
     <li>
     <%= link_to 'Logout', signout_path %>

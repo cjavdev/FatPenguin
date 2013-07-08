@@ -10,6 +10,26 @@
     <%= yield(:head) %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
+		<% unless user_signed_in? %>
+		<div id="myCarousel" class="carousel slide stick-top">
+		  <ol class="carousel-indicators">
+		    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+		    <li data-target="#myCarousel" data-slide-to="1"></li>
+		    <li data-target="#myCarousel" data-slide-to="2"></li>
+		  </ol>
+		  <!-- Carousel items -->
+		  <div class="carousel-inner">
+		    <div class="active item">
+					<%= link_to 'Login', signin_path %>
+					<%= image_tag "northpole.jpg" %></div>
+		    <div class="item"><%= image_tag "wallpaper.jpg" %></div>
+		    <div class="item"><%= image_tag "Adelie.jpg" %></div>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+		</div>
+		<% else %>
 		<div id="wrap">
 	    <div class="navbar navbar-fixed-top">
 	      <nav class="navbar-inner">
@@ -20,7 +40,7 @@
 	    </div>
 	    <div id="main" role="main">
 	      <div class="container">
-	        <div class="content">
+	        <div id="content" class="content">
 	           <div class="row">
 	            <div class="span12">
 	              <%= render 'layouts/messages' %>
@@ -37,5 +57,8 @@
 					Breaking the ice since 2013
 			</div>
     </footer>
+		<% end %>
+		<%= render :partial => "layouts/edit" %>
+		
   </body>
 </html>

@@ -1,0 +1,17 @@
+<h3>Nearby</h3>
+<div class="accordion" id="accordion2">
+	<% users.each(function(user) { %>
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+        <%= user.escape("name") %>
+      </a>
+    </div>
+    <div id="collapseOne" class="accordion-body collapse in">
+      <div class="accordion-inner">
+        <%= user.get("email") %>
+      </div>
+    </div>
+  </div>
+	<%})%>
+</div>

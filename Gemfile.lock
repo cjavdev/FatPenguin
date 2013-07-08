@@ -28,7 +28,6 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
-    addressable (2.3.5)
     arel (3.0.2)
     backbone-on-rails (1.0.0.0)
       eco
@@ -43,6 +42,7 @@ GEM
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.0.4)
+    chunky_png (1.2.8)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -51,7 +51,12 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    database_cleaner (1.0.1)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     debug_inspector (0.0.2)
     diff-lcs (1.2.4)
     eco (1.0.0)
@@ -60,9 +65,6 @@ GEM
       execjs
     eco-source (1.1.0.rc.1)
     ejs (1.1.1)
-    email_spec (1.4.0)
-      launchy (~> 2.1)
-      mail (~> 2.2)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -71,6 +73,7 @@ GEM
     figaro (0.7.0)
       bundler (~> 1.0)
       rails (>= 3, < 5)
+    fssm (0.2.10)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -82,8 +85,6 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
-    launchy (2.3.0)
-      addressable (~> 2.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -106,8 +107,6 @@ GEM
       omniauth (~> 1.0)
     pg (0.15.1)
     polyglot (0.3.3)
-    quiet_assets (1.0.2)
-      railties (>= 3.1, < 5.0)
     rabl (0.8.6)
       activesupport (>= 2.3.14)
     rack (1.4.5)
@@ -175,14 +174,12 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   coffee-rails (~> 3.2.1)
-  database_cleaner
-  email_spec
+  compass-rails
   figaro
   jquery-rails
   omniauth
   omniauth-facebook
   pg
-  quiet_assets
   rabl
   rails (= 3.2.13)
   rspec-rails

@@ -3,13 +3,17 @@
 	<% users.each(function(user) { %>
   <div class="accordion-group">
     <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= user.escape("id") %>">
         <%= user.escape("name") %>
       </a>
     </div>
-    <div id="collapseOne" class="accordion-body collapse in">
+    <div id="collapse<%= user.escape("id") %>" class="accordion-body collapse">
       <div class="accordion-inner">
-        <%= user.get("email") %>
+				<ul>
+	        <% user.get("facts").each(function(fact) { %>
+	        	<li><%= fact.escape("content") %></li>
+					<% }); %>
+				</ul>
       </div>
     </div>
   </div>

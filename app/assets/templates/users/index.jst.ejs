@@ -1,24 +1,19 @@
 <h3>Nearby</h3>
-<div class="accordion" id="accordion2">
+<ul>
 	<% users.each(function(user) { %>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse<%= user.escape("id") %>">
-        <%= user.escape("name") %>
-      </a>
-    </div>
-    <div id="collapse<%= user.escape("id") %>" class="accordion-body collapse">
-      <div class="accordion-inner">
-				<% if(user.get("facts")) { %>
-					<ul>
-						<% console.log(user.get("facts")); %>
-		        <% user.get("facts").each(function(fact) { %>
-		        	<li><%= fact.escape("content") %></li>
-						<% }); %>
-					</ul>
-				<% } %>
-      </div>
-    </div>
-  </div>
-	<%})%>
-</div>
+	<li>
+		<div>
+			<img src="http://graph.facebook.com/<%= user.escape("uid") %>/picture?type=square" class="pull-left" />
+			<h4><%= user.escape("name") %></h4>
+			<% if(user.get("facts")) { %>
+				<ul>
+					<% console.log(user.get("facts")); %>
+	        <% user.get("facts").each(function(fact) { %>
+	        	<li><%= fact.escape("content") %></li>
+					<% }); %>
+				</ul>
+			<% } %>
+		</div>
+	</li>
+	<% }); %>
+</ul>

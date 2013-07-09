@@ -24,6 +24,7 @@ end
 group :development, :test do
   gem 'rspec-rails'
 end
+gem 'geocoder'
 # group :test do
 #   gem 'database_cleaner'
 #   gem 'email_spec'

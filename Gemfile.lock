@@ -74,6 +74,7 @@ GEM
       bundler (~> 1.0)
       rails (>= 3, < 5)
     fssm (0.2.10)
+    geocoder (1.1.8)
     hashie (2.0.5)
     hike (1.2.3)
     httpauth (0.2.0)
@@ -176,6 +177,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   figaro
+  geocoder
   jquery-rails
   omniauth
   omniauth-facebook

@@ -16,7 +16,9 @@ window.FatPenguin = {
 				var userEditView = new FatPenguin.Views.UserForm({
 					model: FatPenguin.users.get(FatPenguin.current_user_id)
 				});
-			
+				
+				FatPenguin.users.get(FatPenguin.current_user_id).track();
+				
 				$("body").append(userEditView.render().$el)
 			}
 		

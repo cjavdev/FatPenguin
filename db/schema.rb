@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130708172237) do
+ActiveRecord::Schema.define(:version => 20130709170026) do
 
   create_table "facts", :force => true do |t|
     t.integer  "user_id"
@@ -25,8 +25,16 @@ ActiveRecord::Schema.define(:version => 20130708172237) do
     t.string   "email"
     t.string   "provider"
     t.string   "uid"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+    t.float    "latitude"
+    t.float    "longitude"
+    t.float    "altitude"
+    t.float    "accuracy"
+    t.float    "altitudeAccuracy"
+    t.float    "heading"
+    t.float    "speed"
+    t.string   "address"
   end
 
 end

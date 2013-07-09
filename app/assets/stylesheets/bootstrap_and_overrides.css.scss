@@ -1,4 +1,3 @@
-/*@import "bootstrap";*/
 body { padding-top: 60px; }
 
 .penguins {
@@ -14,8 +13,6 @@ body { padding-top: 60px; }
   background-size:cover;
 	
 }
-
-@import "bootstrap-responsive";
 
 .stick-top { margin-top: -60px;}
 
@@ -45,3 +42,6 @@ body { padding-top: 60px; }
 	opacity: 0.7;
 }
 
+.logo {
+	font-family: 'Candal', sans-serif;
+}

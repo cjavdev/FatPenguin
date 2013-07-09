@@ -4,14 +4,29 @@ window.FatPenguin = {
   Views: {},
   Routers: {},
   initialize: function() {
-		new FatPenguin.Routers.Users({
-			$rootEl: $("#content")
-		});
+		FatPenguin.users = new FatPenguin.Collections.Users();
+		FatPenguin.users.fetch().then(function(){
+			new FatPenguin.Routers.Users({
+				$rootEl: $("#content")
+			});
 		
-		Backbone.history.start();
-  }
+			//if logged in
+			if(FatPenguin.current_user_id) {
+				var userEditView = new FatPenguin.Views.UserForm({
+					model: FatPenguin.users.get(FatPenguin.current_user_id)
+				});
+			
+				$("body").append(userEditView.render().$el)
+			}
+		
+			Backbone.history.start();
+		});
+  },
+	
+	note: function (type, message) {
+		$("#notifications").append(JST['note']({
+			message: message,
+			type: type
+		}));
+	}
 };
-
-$(document).ready(function(){
-  FatPenguin.initialize();
-});

@@ -1,0 +1,9 @@
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+	<% if user_signed_in? %>
+	FatPenguin.current_user_id = <%= current_user.id %>;
+	<% end %>
+	FatPenguin.token = "<%= form_authenticity_token %>";
+  FatPenguin.initialize();
+});
+</script>

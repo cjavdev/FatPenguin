@@ -1,8 +1,6 @@
 FatPenguin.Routers.Users = Backbone.Router.extend({
 	initialize: function (options) {
-		console.log("init users router");
 		this.$rootEl = options.$rootEl;
-		FatPenguin.users = new FatPenguin.Collections.Users();
 	},
 	
 	routes: {

@@ -1,0 +1,12 @@
+<div id="fact_<%= seed %>">
+	<input type="hidden" 
+				 name="user[facts_attributes][<%= seed %>][id]"
+				 value="">
+	<input type="text" 
+				 name="user[facts_attributes][<%= seed %>][content]" 
+				 id="fact_input_<%= seed %>">
+	<button type="button" 
+	       class="btn btn-small btn-danger btnRemoveThing"
+				 data-id="<%= seed %>">-</button>
+	<br />
+</div>

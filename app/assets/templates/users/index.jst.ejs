@@ -9,11 +9,13 @@
     </div>
     <div id="collapse<%= user.escape("id") %>" class="accordion-body collapse">
       <div class="accordion-inner">
-				<ul>
-	        <% user.get("facts").each(function(fact) { %>
-	        	<li><%= fact.escape("content") %></li>
-					<% }); %>
-				</ul>
+				<% if(user.get("facts")) { %>
+					<ul>
+		        <% user.get("facts").each(function(fact) { %>
+		        	<li><%= fact.escape("content") %></li>
+						<% }); %>
+					</ul>
+				<% } %>
       </div>
     </div>
   </div>

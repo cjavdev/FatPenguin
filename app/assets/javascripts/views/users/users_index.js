@@ -6,8 +6,6 @@ FatPenguin.Views.UsersIndex = Backbone.View.extend({
   template: JST['users/index'],
 	
 	render: function () {
-		console.log("render of index view");
-		
 		var renderedContent = this.template({
 			users: this.collection
 		});

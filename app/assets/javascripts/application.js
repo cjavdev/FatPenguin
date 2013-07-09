@@ -16,6 +16,7 @@
 //= require backbone
 //= require bootstrap
 //= require fat_penguin
+//= require jquery.serializeJSON
 //= require_tree ../templates
 //= require_tree ./models
 //= require_tree ./collections

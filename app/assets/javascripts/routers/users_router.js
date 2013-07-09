@@ -4,7 +4,8 @@ FatPenguin.Routers.Users = Backbone.Router.extend({
 	},
 	
 	routes: {
-		"" : "index"
+		"" : "index",
+		"_=_" : "index"
 	},
 	
 	index: function () {

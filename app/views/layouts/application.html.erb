@@ -5,6 +5,7 @@
     <title><%= content_for?(:title) ? yield(:title) : "FatPenguin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Fatpenguin" %>">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Chicle|Cantora+One|Emblema+One|Exo:400,900|Candal|Archivo+Black|Gorditas:400,700|Alegreya:400,900' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
@@ -12,18 +13,11 @@
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
 		<% unless user_signed_in? %>
-		<div>
-			<div>
-				<%= link_to "<i class='icon-facebook'></i> | Connect with Facebook".html_safe, signin_path, :class => "btn btn-facebook" %>
-			</div>
-			<div>
-				Some content
-			</div>
-		</div>
+			<%= render :partial => 'layouts/splash' %>
 		<% else %>
-		
+		<div class="penguins">
 		<div id="wrap">
-	    <div class="navbar navbar-fixed-top">
+	    <div class="navbar navbar-fixed-top transparent">
 	      <nav class="navbar-inner">
 	        <div class="container">
 	          <%= render 'layouts/navigation' %>
@@ -47,9 +41,10 @@
     <footer class="footer">
 			<div class="container">
 				<hr/>
-					Breaking the ice since 2013
+					Breaking ice since 2013.
 			</div>
     </footer>
+	</div>
 		<% end %>
   </body>
 </html>

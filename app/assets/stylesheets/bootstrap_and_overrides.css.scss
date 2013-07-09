@@ -11,6 +11,7 @@ body {
 }
 $navbarCollapseWidth: 500px;
 
+
 @import "bootstrap-responsive";
 @import "bootswatch/cerulean/bootswatch";
 
@@ -18,48 +19,7 @@ $navbarCollapseWidth: 500px;
 	color: black;
 }
 
-/*
-.penguins {
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	padding-top: 60px;
-	margin-bottom: -70px;
-	background-image: url('/assets/wallpaper_blur.png');
-	background-repeat:no-repeat;
-  background-size:cover;
-	
-}
-*/
 .stick-top { margin-top: -60px;}
-
-.transparent {
-	/* Required for IE 5, 6, 7 */
-	/* ...or something to trigger hasLayout, like zoom: 1; */
-	width: 100%; 
-		
-	/* Theoretically for IE 8 & 9 (more valid) */	
-	/* ...but not required as filter works too */
-	/* should come BEFORE filter */
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
-	
-	/* This works in IE 8 & 9 too */
-	/* ... but also 5, 6, 7 */
-	filter: alpha(opacity=50);
-	
-	/* Older than Firefox 0.9 */
-	-moz-opacity:0.5;
-	
-	/* Safari 1.x (pre WebKit!) */
-	-khtml-opacity: 0.5;
-    
-	/* Modern!
-	/* Firefox 0.9+, Safari 2?, Chrome any?
-	/* Opera 9+, IE 9+ */
-	opacity: 0.5;
-}
 
 .logo {
 	font-family: 'Candal', sans-serif;

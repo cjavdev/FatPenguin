@@ -5,14 +5,18 @@
 			<%= link_to "<i class='icon-facebook'></i> | Connect with Facebook".html_safe, signin_path, :class => "btn btn-facebook" %>
 </div>
 <style type="text/css" media="screen">
-.splash {
-	margin: 0 auto;
-	width: 230px;
-}
 
 body {
 	background-image:url('<%= image_path 'wallpaper.jpg' %>');
 	background-size: 100%;
 	background-repeat: no-repeat;
+}
+
+
+@media screen and (max-width: 500px) {
+	body {
+		background-image:url('<%= image_path 'wallpaper-port.jpg' %>'); 
+		padding-top: 60px; 
+	}
 }
 </style>

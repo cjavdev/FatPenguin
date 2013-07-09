@@ -2,10 +2,22 @@
 @import "bootstrap";
 body { 
 	padding-top: 60px; 
-	background-color: #333;
 }
+.modal-body { 
+  max-height: 350px; 
+  padding: 15px; 
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch; 
+}
+$navbarCollapseWidth: 500px;
+
 @import "bootstrap-responsive";
 @import "bootswatch/cerulean/bootswatch";
+
+.black {
+	color: black;
+}
+
 /*
 .penguins {
 	position: absolute;
@@ -31,52 +43,96 @@ body {
 	/* Theoretically for IE 8 & 9 (more valid) */	
 	/* ...but not required as filter works too */
 	/* should come BEFORE filter */
-	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
 	
 	/* This works in IE 8 & 9 too */
 	/* ... but also 5, 6, 7 */
-	filter: alpha(opacity=70);
+	filter: alpha(opacity=50);
 	
 	/* Older than Firefox 0.9 */
-	-moz-opacity:0.7;
+	-moz-opacity:0.5;
 	
 	/* Safari 1.x (pre WebKit!) */
-	-khtml-opacity: 0.7;
+	-khtml-opacity: 0.5;
     
 	/* Modern!
 	/* Firefox 0.9+, Safari 2?, Chrome any?
 	/* Opera 9+, IE 9+ */
-	opacity: 0.7;
+	opacity: 0.5;
 }
 
 .logo {
 	font-family: 'Candal', sans-serif;
 }
+
 .user-item {
-	border-bottom: 1px solid #FFF;
-	border-right: 1px solid #FFF;
 	position: static;
-  margin-left:2%;
+	padding: 2px;
+	margin: 2px;
+	border-bottom: 1px solid #eee;
 }
+
+.user-item div {
+	height: 100%;
+}
+
 .user-container {
 	position: relative;
+	width: 100%;
+	
 }
+
 .user-content {
 	float: left;
 	padding-left: 20px;
 }
+
 .user-image {
 	float: left;
 	max-width: 100px;
 }
+
 ol, ul {
 	list-style: none;
 	padding:0;
 	margin:0;
 }
-#users-list {
-	max-width: 70%;
+
+/*body {
+	background-image:url('wallpaper-blur.png'); 
+	background-size:100%;
+	background-repeat: no-repeat;
+}*/
+
+@media screen and (max-width: 500px){
+	.user-content {
+		padding-left: 8px;
+	}
+
+	.modal { 
+	    position: fixed; 
+	    top: 3%; 
+	    right: 3%; 
+	    left: 3%; 
+	    width: auto; 
+	    margin: 0; 
+	}
+	.modal-body { 
+	    height: 60%; 
+	}
+/*	body {
+		background-image:url('wallpaper-port-blur.jpg'); 
+		background-size:100%;
+		background-repeat: no-repeat;
+	}*/
 }
+
+
+.splash {
+	margin: 0 auto;
+	width: 230px;
+}
+
 .clearfix:after {
 	content: ".";
 	display: block;
@@ -87,4 +143,9 @@ ol, ul {
 }
 .clearfix {
 	display: inline-block;
+}
+
+.navbar .brand {
+	font-family: Candal;
+	margin-left:3px;
 }

@@ -12,9 +12,9 @@
 				<% if(user.get("facts")) { %>
 					<ul>
 						<% console.log(user.get("facts")); %>
-		        <!-- <% user.get("facts").each(function(fact) { %>
+		        <% user.get("facts").each(function(fact) { %>
 		        	<li><%= fact.escape("content") %></li>
-						<% }); %> -->
+						<% }); %>
 					</ul>
 				<% } %>
       </div>

@@ -29,5 +29,10 @@ window.FatPenguin = {
 			message: message,
 			type: type
 		}));
+		$("#note-" + type).addClass("fade in");
+		window.setTimeout(function(){
+			$("#note-" + type).slideUp();
+			$(".modal-backdrop").remove();
+		}, 2500);
 	}
 };

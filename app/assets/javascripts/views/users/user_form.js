@@ -6,7 +6,6 @@ FatPenguin.Views.UserForm = Backbone.View.extend({
 	events: {
 		"click #btnAddThing" 	  : "add_thing",
 		"click .btnRemoveThing" : "remove_thing",
-		// "click #btnGo"				  : "submit",
 		"ajax:success form"     : "submit_success"
 	},
 
@@ -15,9 +14,11 @@ FatPenguin.Views.UserForm = Backbone.View.extend({
 	thingTemplate: JST['facts/form'],
 	
 	submit_success: function (resp, model) {
-		console.log("submit success, model:");
-		console.log(model);
-		this.model.set(model, { parse: true });
+		FatPenguin.note("info", "Updated!");
+		$("#myModal").modal('hide');
+		$(".modal-backdrop").toggle("in,out");
+		
+		this.model.fetch();
 	},
 	
 	render: function () {
@@ -41,48 +42,13 @@ FatPenguin.Views.UserForm = Backbone.View.extend({
 	
 	remove_thing: function (event) {
 		event.preventDefault();
-		var $thing_node = $("#fact_" + $(event.target).attr("data-id"));
-		$thing_node.find(".thing_ctl").attr("type", "hidden").val("_destroy");
-		$("#fact_" + $(event.target).attr("data-id") + " .btnRemoveThing").remove();
-	},
-	
-	submit: function (event) {
-		event.preventDefault();
-		var that = this;
+		var id = $(event.target).attr("data-id");
 		
-		var data = $("#userForm").serializeJSON();
-		console.log("getting user form");		
-		console.log(data);
-		this.model.save(data, {
-			success: function (model, resp) {
-				//this.model.set(model);
-				FatPenguin.note("info", "Updated!");
-				$("#myModal").modal('hide');
-				$(".modal-backdrop").toggle("in,out");
-			},
-			
-			error: function (model, resp) {
-				that.$el.prepend(resp.responseText);
-				$("#myModal").modal('hide');
-				$(".modal-backdrop").toggle("in,out");
-			},
-		});
-		// $.ajax({
-// 			url: "/users/" + this.model.get("id"),
-// 			type: "PUT",
-// 			data: data,
-// 			success: function (model, resp) {
-// 				this.model.set(model);
-// 				FatPenguin.note("info", "Updated!");
-// 				$("#myModal").modal('hide');
-// 				$(".modal-backdrop").toggle("in,out");
-// 			},
-// 			
-// 			error: function (model, resp) {
-// 				that.$el.prepend(resp.responseText);
-// 				$("#myModal").modal('hide');
-// 				$(".modal-backdrop").toggle("in,out");
-// 			},
-// 		});
+		var $thing_node = this.$el.find("#fact_" + $(event.target).attr("data-id"));
+		$thing_node.find(".content_field")
+		.attr("type", "hidden")
+		.attr("name", "user[facts_attributes][" + id + "][_destroy]")
+		.val("1");
+		$("#fact_" + id + " .btnRemoveThing").remove();
 	},
 });

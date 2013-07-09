@@ -1,18 +1,19 @@
-<h3>Nearby</h3>
-<ul>
+<ul class="users-list">
 	<% users.each(function(user) { %>
-	<li>
-		<div>
-			<img src="http://graph.facebook.com/<%= user.escape("uid") %>/picture?type=square" class="pull-left" />
-			<h4><%= user.escape("name") %></h4>
-			<% if(user.get("facts")) { %>
-				<ul>
-					<% console.log(user.get("facts")); %>
-	        <% user.get("facts").each(function(fact) { %>
-	        	<li><%= fact.escape("content") %></li>
-					<% }); %>
-				</ul>
-			<% } %>
+	<li class="user-item">
+		<div class="user-container clearfix">
+			<img src="http://graph.facebook.com/<%= user.escape("uid") %>/picture?type=large" class="user-image" />
+			<div class="user-content">
+				<h4><%= user.escape("name") %></h4>
+				<% if(user.get("facts")) { %>
+					<ul>
+						<% console.log(user.get("facts")); %>
+		        <% user.get("facts").each(function(fact) { %>
+		        	<li><%= fact.escape("content") %></li>
+						<% }); %>
+					</ul>
+				<% } %>
+			</div>
 		</div>
 	</li>
 	<% }); %>

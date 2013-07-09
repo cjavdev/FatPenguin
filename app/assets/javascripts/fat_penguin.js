@@ -8,7 +8,7 @@ window.FatPenguin = {
 		
 		FatPenguin.users.fetch().then(function(){
 			new FatPenguin.Routers.Users({
-				$rootEl: $("#content")
+				$rootEl: $("#users-list")
 			});
 		
 			//if logged in

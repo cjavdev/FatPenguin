@@ -1,16 +1,30 @@
-<ul class="nav">
-	<li class="logo"><%= link_to "FatPenguin", root_path, :class => 'brand logo' %></li>
-  <% if user_signed_in? %>
-    <li>
-			<a href="#myModal" role="button" data-toggle="modal">Me</a>
-    </li>
-    <li>
-    <%= link_to 'Logout', signout_path %>
-    </li>
-  <% else %>
-    <li>
-    <%= link_to 'Login', signin_path %>
-    </li>
-  <% end %>
-</ul>
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<%= link_to "FatPenguin", root_path, :class => 'brand' %>
+			<div class="nav-collapse collapse" id="main-menu">
+				<ul class="nav" id="main-menu-left">
+				  <% if user_signed_in? %>
+				    <li>
+							<a href="#myModal" role="button" data-toggle="modal">Me</a>
+				    </li>
+				    <li>
+				    <%= link_to 'Logout', signout_path %>
+				    </li>
+				  <% else %>
+				    <li>
+				    <%= link_to 'Login', signin_path %>
+				    </li>
+				  <% end %>
+				</ul>	
+		</div>
+		</div>
+	</div>
+</div>
+
 

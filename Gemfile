@@ -12,6 +12,7 @@ end
 gem 'jquery-rails'
 gem 'compass-rails'
 gem 'bootstrap-sass'
+gem 'bootswatch-rails'
 gem 'backbone-on-rails'
 gem 'figaro'
 gem 'omniauth'

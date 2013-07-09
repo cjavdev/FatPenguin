@@ -11,34 +11,19 @@
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
-  <body class="<%= controller_name %> <%= action_name %>">
+  <body>
 		<% unless user_signed_in? %>
 			<%= render :partial => 'layouts/splash' %>
 		<% else %>
-		<div class="penguins">
-		<div id="wrap">
-	    <div class="navbar navbar-fixed-top transparent">
-	      <nav class="navbar-inner">
-	        <div class="container">
-	          <%= render 'layouts/navigation' %>
-	        </div>
-	      </nav>
-	    </div>
-	    <div id="main" role="main">
-	      <div class="container">
-					<div id="notifications"></div>
-	        <div id="content" class="content">
-	           <div class="row">
-	            <div class="span12">
-	              <%= render 'layouts/messages' %>
-	              <%= yield %>
-	            </div>
-	          </div>
-	        </div>
-	      </div> <!--! end of .container -->
-	    </div> <!--! end of #main -->
-		</div> <!--! end of #wrap -->
-	</div>
-		<% end %>s
+			<%= render 'layouts/navigation' %>
+		
+			<div id="notifications"></div>
+
+	    <%= render 'layouts/messages' %>
+
+			<div id="users-list">
+	        <%= yield %>
+			</div> 
+		<% end %>
   </body>
 </html>

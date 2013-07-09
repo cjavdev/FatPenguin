@@ -1,5 +1,12 @@
-body { padding-top: 60px; }
-
+@import "bootswatch/cerulean/variables";
+@import "bootstrap";
+body { 
+	padding-top: 60px; 
+	background-color: #333;
+}
+@import "bootstrap-responsive";
+@import "bootswatch/cerulean/bootswatch";
+/*
 .penguins {
 	position: absolute;
 	left: 0;
@@ -13,7 +20,7 @@ body { padding-top: 60px; }
   background-size:cover;
 	
 }
-
+*/
 .stick-top { margin-top: -60px;}
 
 .transparent {
@@ -44,4 +51,40 @@ body { padding-top: 60px; }
 
 .logo {
 	font-family: 'Candal', sans-serif;
+}
+.user-item {
+	border-bottom: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	position: static;
+  margin-left:2%;
+}
+.user-container {
+	position: relative;
+}
+.user-content {
+	float: left;
+	padding-left: 20px;
+}
+.user-image {
+	float: left;
+	max-width: 100px;
+}
+ol, ul {
+	list-style: none;
+	padding:0;
+	margin:0;
+}
+#users-list {
+	max-width: 70%;
+}
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+.clearfix {
+	display: inline-block;
 }

@@ -2,11 +2,6 @@
 $(document).ready(function() {
 	<% if user_signed_in? %>
 	FatPenguin.current_user_id = <%= current_user.id %>;
-	
-	//update users location
-	
-	
-	
 	<% end %>
 	FatPenguin.token = "<%= form_authenticity_token %>";
   FatPenguin.initialize();

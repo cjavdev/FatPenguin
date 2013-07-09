@@ -11,9 +11,10 @@
       <div class="accordion-inner">
 				<% if(user.get("facts")) { %>
 					<ul>
-		        <% user.get("facts").each(function(fact) { %>
+						<% console.log(user.get("facts")); %>
+		        <!-- <% user.get("facts").each(function(fact) { %>
 		        	<li><%= fact.escape("content") %></li>
-						<% }); %>
+						<% }); %> -->
 					</ul>
 				<% } %>
       </div>

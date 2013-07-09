@@ -8,15 +8,12 @@ FatPenguin.Routers.Users = Backbone.Router.extend({
 	},
 	
 	index: function () {
-		console.log("index action users router");
 		var that = this;
-		FatPenguin.users.fetch().then(function() {
-			var indexView = new FatPenguin.Views.UsersIndex({
-				collection: FatPenguin.users
-			});
-		
-			that._swapView(indexView);
+		var indexView = new FatPenguin.Views.UsersIndex({
+			collection: FatPenguin.users
 		});
+	
+		that._swapView(indexView);
 	},
 	
 	_swapView: function (view) {

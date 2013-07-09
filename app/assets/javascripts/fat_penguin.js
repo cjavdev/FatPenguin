@@ -5,6 +5,7 @@ window.FatPenguin = {
   Routers: {},
   initialize: function() {
 		FatPenguin.users = new FatPenguin.Collections.Users();
+		
 		FatPenguin.users.fetch().then(function(){
 			new FatPenguin.Routers.Users({
 				$rootEl: $("#content")

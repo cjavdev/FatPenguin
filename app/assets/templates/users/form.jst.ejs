@@ -1,4 +1,4 @@
-<form action="/users" action="POST" id="userForm" data-remote="true">
+<form action="/users/<%= user.get("id") %>" method="POST" id="userForm" data-remote="true">
 	<div id="myModal" 
 		   class="modal hide fade" 
 			 tabindex="-1" 
@@ -42,18 +42,12 @@
 									 
 					  <button type="button" 
 			 		         class="btn btn-small btn-danger btnRemoveThing"
-									 data-id="<%= seed %>">-</button>
+									 data-id="<%= seed %>"
+									 >-</button>
 						<br />
 					</div>
 				<% }); %>
 			</fieldset>	
-			<% var tempSeed = (new Date).getTime(); %>
-			<input type="hidden" 
-			       name="user[facts_attributes][<%= tempSeed %>][id]">
-						 
-			<input type="text" 
-			       name="user[facts_attributes][<%= tempSeed %>][content]">	
-						 	 
 			<button type="button" 
 			        class="btn btn-small btn-success"
 							id="btnAddThing">+</button>

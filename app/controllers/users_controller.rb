@@ -3,9 +3,7 @@ class UsersController < ApplicationController
   before_filter :correct_user?, :except => [:index]
 
   def index
-    close = [current_user]
-    close += current_user.nearbys(30)
-    @users = close
+    @users = current_user.nearbys(30).to_a + [current_user]
   end
 
   def edit

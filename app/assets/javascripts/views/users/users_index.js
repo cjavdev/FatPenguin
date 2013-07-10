@@ -20,9 +20,14 @@ FatPenguin.Views.UsersIndex = Backbone.View.extend({
 	
 	sayhi: function (event) {
 		event.preventDefault();
-		var peerjs_id = $(event.target).attr("data-id");
 		
-		FatPenguin.users.get(FatPenguin.current_user_id).direct_message(peerjs_id, "hi");
+		var id = $(event.target).attr("data-id");
+		var user = FatPenguin.users.get(id);
+		var msgView = new FatPenguin.Views.Message({
+			model: user
+		});
 		
+		this.$el.find("#message-box").html(msgView.render().$el);
+		this.$el.find("#msgModal").modal("show");		
 	},
 });

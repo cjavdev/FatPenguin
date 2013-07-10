@@ -4,16 +4,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "FatPenguin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Fatpenguin" %>">
-		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-		<script type="text/javascript"
-		src="http://cdn.peerjs.com/0/peer.js"></script>
-		
 		<link href='http://fonts.googleapis.com/css?family=Chicle|Cantora+One|Emblema+One|Exo:400,900|Candal|Archivo+Black|Gorditas:400,700|Alegreya:400,900' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
-  </head>
+		<script src="http://js.pusher.com/2.1/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('689695ee0bc2f7abe48c');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
+  </script>
   <body>
 		<% unless user_signed_in? %>
 			<%= render :partial => 'layouts/splash' %>

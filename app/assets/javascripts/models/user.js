@@ -37,56 +37,64 @@ FatPenguin.Models.User = Backbone.Model.extend({
 		});
 	},
 	
-	join_chat: function() {
-		var that = this;
-		
-		FatPenguin.peer = new Peer({key: 'czky2dg9wofrms4i', debug: true});
-	  
-		FatPenguin.peer.on('open', function(id) {
-			console.log("my peer id: " + id);
-			that.set({ peerjs_id: id });
-	    that.save();
-	  });
-		
-	  FatPenguin.peer.on('connection', this.connect);
-	  
-		FatPenguin.users.each(function(user) {
-			console.log("attempting to connect to: " + user.get("name"));
-			
-			if(user.get("peerjs_id") && user.get("peerjs_id") != that.peerjs_id) {
-				FatPenguin.peer.connect(user.get("peerjs_id"));
-			}
-		});
-	},
+	// join_chat: function() {
+// 		var that = this;
+// 		
+// 		FatPenguin.peer = new Peer(that.get("id"), {key: 'czky2dg9wofrms4i', debug: true});
+// 	  
+// 		FatPenguin.peer.on('open', function(id) {
+// 			console.log("my peer id: " + id);
+// 			//that.set({ peerjs_id: id });
+// 	    //that.save();
+// 	  });
+// 		
+// 		console.log("iterate users");
+// 		FatPenguin.users.each(function(user) {
+// 			if(user.get("id")!= FatPenguin.current_user_id) {
+// 				console.log("attempting to connect to: " + user.get("name"));
+// 				user.conn = FatPenguin.peer.connect(user.get("id"));
+// 				console.log(user);
+// 			}
+// 			
+// 			// if(user.get("peerjs_id") && user.get("peerjs_id") != that.peerjs_id) {
+// // 				FatPenguin.peer.connect(user.get("peerjs_id"));
+// // 			}
+// 		});
+// 		
+// 	  FatPenguin.peer.on('connection', this.connect);
+// 	  
+// 	},
 	
-	connect: function (c) {
-    conn = c;
-				
-    conn.on('data', function(data){
-			FatPenguin.note("info", "Message: " + data.message);
-    });
-		
-    conn.on('close', function(err) { 
-			alert(conn.peer + ' has left the chat.') 
-		});
-	},
+	// connect: function (c) {
+//     conn = c;
+// 				
+//     conn.on('data', function(data) {
+// 			console.log("getting message: " + data.message);
+// 			console.log(data);
+// 			//FatPenguin.users.get(data.from.id).set("peerjs_id", data.from.peerjs_id);
+// 			FatPenguin.note("info", "Message: " + data.message);
+//     });
+// 		
+//     conn.on('close', function(err) { 
+// 			// alert(conn.peer + ' has left the chat.') 
+// 		});
+// 	},
+// 	
+// 	direct_message: function(user, message) {
+// 		var that = this;
+// 		console.log("sending direct message to: " + user.get("name"));
+// 		console.log("message: " + message);
+// 		if(user.conn) {
+// 			console.log(user.conn);
+// 			user.conn.send({ message: message });
+// 		}
+// 	},
 	
-	get_message: function (data) {
-		console.log("got message");
-		console.log(data);
-	},
-	
-	direct_message: function(peerjs_id, message) {
-		FatPenguin.peer.connections[peerjs_id].peerjs.send({
-			message: message 
-		});
-	},
-	
-	broadcast_message: function(message) {
-		_.pluck(FatPenguin.peer.connections, "peerjs").forEach(function(p) {
-			p.send({
-				message: message
-			});
-		});
-	}
+	// broadcast_message: function(message) {
+	// 	_.pluck(FatPenguin.peer.connections, "peerjs").forEach(function(p) {
+	// 		p.send({
+	// 			message: message
+	// 		});
+	// 	});
+	// }
 });

@@ -7,15 +7,16 @@
 				<h4><%= user.escape("name") %></h4>
 				<% if(user.get("facts")) { %>
 					<ul>
-						<% console.log(user.get("facts")); %>
 		        <% user.get("facts").each(function(fact) { %>
 		        	<li><%= fact.escape("content") %></li>
 						<% }); %>
 					</ul>
 				<% } %>
 			</div>
-			<button class="btn pull-right" id="btnSayHi" data-id="<%= user.get("peerjs_id") %>">hi</button>
+			<button class="btn pull-right" id="btnSayHi" data-id="<%= user.get("id") %>">hi</button>
 		</div>
 	</li>
 	<% }); %>
 </ul>
+
+<div id="message-box"></div>

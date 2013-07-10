@@ -18,7 +18,7 @@ window.FatPenguin = {
 				});
 				
 				FatPenguin.users.get(FatPenguin.current_user_id).track();
-				FatPenguin.users.get(FatPenguin.current_user_id).join_chat();
+				// FatPenguin.users.get(FatPenguin.current_user_id).join_chat();
 				
 				$("body").append(userEditView.render().$el)
 			}

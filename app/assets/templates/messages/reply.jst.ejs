@@ -1,0 +1,28 @@
+<div id="rmsgModal" 
+	   class="modal fade" 
+		 tabindex="-1" 
+		 role="dialog" 
+		 aria-labelledby="rmsgModalLabel" 
+		 aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" 
+						class="close" 
+						data-dismiss="modal" 
+						aria-hidden="true">×</button>
+    <h3 id="rmsgModalLabel">Message <%= user.escape("name") %></h3>
+  </div>
+  <div class="modal-body">
+		<img src="http://graph.facebook.com/<%= user.escape("uid") %>/picture?type=large" class="user-image" />
+		<div class="user-content">
+			<% console.log("loggin:" + message) %>
+			<textarea id="message" rows="7"><%= message %></textarea>
+		</div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" 
+						data-dismiss="modal" 
+						aria-hidden="true">Cancel</button>
+						
+    <button class="btn btn-primary" id="btnSend">Send!</button>
+  </div>
+</div>

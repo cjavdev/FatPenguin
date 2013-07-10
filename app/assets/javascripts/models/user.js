@@ -49,11 +49,20 @@ FatPenguin.Models.User = Backbone.Model.extend({
 
     var pusher = new Pusher('689695ee0bc2f7abe48c');
     var channel = pusher.subscribe('test_channel');
+		
     channel.bind('message', function(data) {
 			if(data.to_id == FatPenguin.current_user_id) {
-				var msg = FatPenguin.users.get(data.from_id).escape("name") + ": ";
+				var user = FatPenguin.users.get(data.from_id);
+		
+				var msgView = new FatPenguin.Views.ReplyMessage({
+					model: user,
+					message: data.message
+				});
 				
-	      FatPenguin.note("info", msg + data.message);
+				
+				$("#message-box").html(msgView.render().$el);
+				$("#rmsgModal").modal("show");	
+				
 			}
     });
 		

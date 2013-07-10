@@ -15,9 +15,9 @@ FatPenguin.Views.Message = Backbone.View.extend({
 	},
 	
 	send: function () {
-		var msg = $("#message").val();
-		$.post("/message/"+this.model.get("id"), {
-			message: msg,
+		var message = $("#message").val();
+		$.post("/message/" + this.model.get("id"), {
+			message: message,
 			from_id: FatPenguin.current_user_id
 		});
 		

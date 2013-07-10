@@ -37,10 +37,27 @@ FatPenguin.Models.User = Backbone.Model.extend({
 		});
 	},
 	
-	// join_chat: function() {
-// 		var that = this;
-// 		
-// 		FatPenguin.peer = new Peer(that.get("id"), {key: 'czky2dg9wofrms4i', debug: true});
+	join_chat: function() {
+		var that = this;
+
+    // // Enable pusher logging - don't include this in production
+    // Pusher.log = function(message) {
+    //   if (window.console && window.console.log) {
+    //     window.console.log(message);
+    //   }
+    // };
+
+    var pusher = new Pusher('689695ee0bc2f7abe48c');
+    var channel = pusher.subscribe('test_channel');
+    channel.bind('message', function(data) {
+			if(data.to_id == FatPenguin.current_user_id) {
+				var msg = FatPenguin.users.get(data.from_id).escape("name") + ": ";
+				
+	      FatPenguin.note("info", msg + data.message);
+			}
+    });
+		
+		// FatPenguin.peer = new Peer(that.get("id"), {key: 'czky2dg9wofrms4i', debug: true});
 // 	  
 // 		FatPenguin.peer.on('open', function(id) {
 // 			console.log("my peer id: " + id);
@@ -62,8 +79,8 @@ FatPenguin.Models.User = Backbone.Model.extend({
 // 		});
 // 		
 // 	  FatPenguin.peer.on('connection', this.connect);
-// 	  
-// 	},
+	  
+	},
 	
 	// connect: function (c) {
 //     conn = c;

@@ -22,7 +22,9 @@ FatPenguin.Views.UsersIndex = Backbone.View.extend({
 		event.preventDefault();
 		
 		var id = $(event.target).attr("data-id");
+		
 		var user = FatPenguin.users.get(id);
+		
 		var msgView = new FatPenguin.Views.Message({
 			model: user
 		});

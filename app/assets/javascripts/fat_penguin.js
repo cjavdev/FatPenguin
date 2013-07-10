@@ -18,7 +18,7 @@ window.FatPenguin = {
 				});
 				
 				FatPenguin.users.get(FatPenguin.current_user_id).track();
-				// FatPenguin.users.get(FatPenguin.current_user_id).join_chat();
+				FatPenguin.users.get(FatPenguin.current_user_id).join_chat();
 				
 				$("body").append(userEditView.render().$el)
 			}
@@ -33,9 +33,6 @@ window.FatPenguin = {
 			type: type
 		}));
 		$("#note-" + type).addClass("fade in");
-		window.setTimeout(function(){
-			$("#note-" + type).slideUp();
-			$(".modal-backdrop").remove();
-		}, 2500);
+		$(".modal-backdrop").remove();
 	}
 };

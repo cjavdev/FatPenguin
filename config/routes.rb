@@ -1,7 +1,7 @@
 FatPenguin::Application.routes.draw do
   resources :facts
   root :to => "home#index"
-  get "/helloworld"  => "home#hello_world"
+  post "/message/:id"  => "home#message"
   resources :users, :only => [:index, :show, :edit, :update]
   match '/auth/:provider/callback' => 'sessions#create'
   match '/signin' => 'sessions#new', :as => :signin

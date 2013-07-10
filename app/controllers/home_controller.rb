@@ -3,9 +3,12 @@ class HomeController < ApplicationController
     @users = User.all
   end
   
-  def hello_world
-    Pusher['test_channel'].trigger('my_event', {
-      message: 'hello world'
+  def message
+    Pusher['test_channel'].trigger('message', {
+      message: params[:message],
+      to_id: params[:id],
+      from_id: params[:from_id]
     })
+    render :json => nil
   end
 end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :provider, :uid, :name, :email, :facts_attributes
   attr_accessible :latitude, :longitude, :altitude, :heading, :speed
-  attr_accessible :acuracy, :altitudeAcuracy, :address
+  attr_accessible :acuracy, :altitudeAcuracy, :address, :peerjs_id
   
   reverse_geocoded_by :latitude, :longitude, :address => :address
   after_validation :reverse_geocode

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709170026) do
+ActiveRecord::Schema.define(:version => 20130709231259) do
 
   create_table "facts", :force => true do |t|
     t.integer  "user_id"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130709170026) do
     t.float    "heading"
     t.float    "speed"
     t.string   "address"
+    t.string   "peerjs_id"
   end
 
 end

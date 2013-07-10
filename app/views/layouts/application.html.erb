@@ -5,6 +5,9 @@
     <title><%= content_for?(:title) ? yield(:title) : "FatPenguin" %></title>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Fatpenguin" %>">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+		<script type="text/javascript"
+		src="http://cdn.peerjs.com/0/peer.js"></script>
+		
 		<link href='http://fonts.googleapis.com/css?family=Chicle|Cantora+One|Emblema+One|Exo:400,900|Candal|Archivo+Black|Gorditas:400,700|Alegreya:400,900' rel='stylesheet' type='text/css'>
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
